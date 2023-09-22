@@ -11,7 +11,8 @@ export default class PageNavigation extends Plugin {
 
 		// Register an event listener for the "file-open" event
 		this.registerEvent(
-			this.app.workspace.on('file-open', (file) => {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			this.app.workspace.on('file-open', (file: any) => {
 
 				// Check if a file is open before updating paths
 				if (file) {
