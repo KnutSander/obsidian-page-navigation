@@ -1,4 +1,4 @@
-import { MarkdownView, Plugin } from 'obsidian';
+import { MarkdownView, Plugin, TFile } from 'obsidian';
 
 export default class PageNavigation extends Plugin {
 	// Variables for the current file and the previous file
@@ -11,8 +11,9 @@ export default class PageNavigation extends Plugin {
 
 		// Register an event listener for the "file-open" event
 		this.registerEvent(
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			this.app.workspace.on('file-open', (file: any) => {
+			this.app.workspace.on('file-open', (file: TFile) => {
+
+				console.log(file.p)
 
 				// Check if a file is open before updating paths
 				if (file) {
@@ -21,8 +22,8 @@ export default class PageNavigation extends Plugin {
 					// Update the current page's name
 					this.currentFile = file.basename;
 
-					// Check if the opened file is a new, empty note
-					if (file.extension === 'md' && file.stat.size === 0) {
+					// Check if the opened file is a new, empty note using a link
+					if (file.extension === 'md' && file.stat.size === 0 && file.path !== 'Untitled.md') {
 						// Create a Header 1 text
 						const headerText = `### Navigation \n[[${this.previousFile}]]`
 
@@ -44,6 +45,6 @@ export default class PageNavigation extends Plugin {
 	}
 
 	onunload() {
-		console.log('Unloading PageNavigation');
+		console.log('Unloading page-navigation');
 	}
 }
