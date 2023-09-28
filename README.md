@@ -9,4 +9,4 @@ The idea is to automatically create a link back to the page the new page was cre
 - More configuration options
 
 ## List of Known Bugs
-- Creating new file using mouse causes links to appear when they shouldn't
+- No known bugs at this time
