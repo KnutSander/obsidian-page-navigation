@@ -6,6 +6,7 @@ The idea is to automatically create a link back to the page the new page was cre
 
 ## List of Improvements
 - Allow users to configure the header for the navgation, currently is always "Navigation"
+- More configuration options
 
 ## List of Known Bugs
-- Link is created regardless of what method the new page was created by. Need to only create one when a page is created by clicking a link. 
+- No known bugs at this time
