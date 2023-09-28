@@ -13,8 +13,6 @@ export default class PageNavigation extends Plugin {
 		this.registerEvent(
 			this.app.workspace.on('file-open', (file: TFile) => {
 
-				console.log(file.p)
-
 				// Check if a file is open before updating paths
 				if (file) {
 					// Store the previous page's name
