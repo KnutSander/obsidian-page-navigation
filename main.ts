@@ -20,8 +20,6 @@ export default class PageNavigation extends Plugin {
 					// Update the current page's name
 					this.currentFile = file.basename;
 
-					console.log(file)
-
 					// Check if the opened file is a new, empty note using a link
 					if (file.extension === 'md' && file.stat.size === 0 && file.name !== 'Untitled.md') {
 						// Create a Header 1 text
