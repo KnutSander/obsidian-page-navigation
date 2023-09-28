@@ -9,4 +9,4 @@ The idea is to automatically create a link back to the page the new page was cre
 - More configuration options
 
 ## List of Known Bugs
-- No known bugs at this time
+- If content is not addedd to new file not created by a link, the next time it is opened a link will be created
