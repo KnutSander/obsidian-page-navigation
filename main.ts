@@ -87,8 +87,15 @@ export default class PageNavigation extends Plugin {
 		for (const child of parent.children) {
 			// If true, this folder belongs to the current file
 			if (child instanceof TFolder && child.name === file.basename) {
+				// Sort the files in the folder alphabetically
+				const sortedFiles = child.children.sort((a, b) => {
+					if (a.name < b.name) return -1;
+					if (a.name > b.name) return 1;
+					return 0;
+				});
+
 				// Add links to all files in the folder
-				for (const file of child.children) {
+				for (const file of sortedFiles) {
 					if(file instanceof TFile){
 						headerText += `[[${file.basename}]]\n`;
 					}
@@ -96,9 +103,6 @@ export default class PageNavigation extends Plugin {
 			break;
 			}
 		}
-
-		// Prepend the navigation list to the file
-		console.log(headerText);
 
 		// Get the file content
 		const content = await this.app.vault.read(file);	
@@ -116,7 +120,6 @@ export default class PageNavigation extends Plugin {
 		}
 
 		// Write the updated content back to the file
-		console.log(updatedContent);
 		await this.app.vault.modify(file, updatedContent);
 	}
 }
