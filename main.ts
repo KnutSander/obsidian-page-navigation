@@ -87,12 +87,9 @@ export default class PageNavigation extends Plugin {
 		for (const child of parent.children) {
 			// If true, this folder belongs to the current file
 			if (child instanceof TFolder && child.name === file.basename) {
-				// Sort the files in the folder alphabetically
-				const sortedFiles = child.children.sort((a, b) => {
-					if (a.name < b.name) return -1;
-					if (a.name > b.name) return 1;
-					return 0;
-				});
+
+				// Sort the files in the folder alphanumerically
+				const sortedFiles = child.children.sort((a, b) => a.name.localeCompare(b.name, 'en', { numeric: true }));
 
 				// Add links to all files in the folder
 				for (const file of sortedFiles) {
