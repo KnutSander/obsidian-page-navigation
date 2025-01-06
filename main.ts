@@ -113,7 +113,7 @@ export default class PageNavigation extends Plugin {
 			updatedContent = content.replace(navigationRegex, headerText.trim());
 		} else {
 			// Append the "Navigation" section if it doesn't exist
-			updatedContent = headerText.trim() + content;
+			updatedContent = headerText.trim() + '\n' + content;
 		}
 
 		// Write the updated content back to the file
