@@ -1,4 +1,6 @@
 # Obsidian Page Navigation Plugin
+**NOTE:** Project has been shelved indefinitely due to better alternatives already existing
+- https://github.com/IdreesInc/Waypoint
 
 This is a simple plugin to automatically create links between pages.
 
@@ -12,6 +14,3 @@ The idea is to automatically create a link back to the page the new page was cre
     - More?
 - Performance enhancements
     - Only update the navigation link if changes are detected
-
-## List of Known Bugs
-- 
